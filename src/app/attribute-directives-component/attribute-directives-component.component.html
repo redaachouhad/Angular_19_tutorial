@@ -1,0 +1,63 @@
+<div align="center">
+  <div class="row text-center">
+    <div class="col-12 m-3">
+      <b>
+        <u>
+        <h2>Attribute Directives Component - ngClass</h2>
+        </u>
+      </b>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-4">
+      <h3 [ngClass]="textColor">This is the first example of ngClass</h3>
+<!--      <h3 [class]="textColor">This is the first example of ngClass</h3>-->
+      <br>
+      <button class="btn btn-success m-2" (click)="changeColor('text-success')">Change to Green</button>
+      <button class="btn btn-danger m-2" (click)="changeColor('text-danger')">Change to Red</button>
+    </div>
+    <div class="col-4">
+      <h3 [ngClass]="isTextGreen?'text-success':'text-danger'">This is the first example of ngClass</h3>
+      <br>
+      <button class="btn btn-success m-2" (click)="changeIsTextGreen(true)">Change to Green</button>
+      <button class="btn btn-danger m-2" (click)="changeIsTextGreen(false)">Change to Red</button>
+      <br>
+      <div>
+        {{isTextGreen}} - <input type="checkbox" name="" id="" [(ngModel)]="isTextGreen"> Change Color
+      </div>
+    </div>
+    <div class="col-4">
+      <h3 [ngClass]="userClass">This is the first example of ngClass</h3>
+      <br>
+      <input type="text" placeholder="Ex : text-success" [(ngModel)]="userClass">
+    </div>
+  </div>
+
+
+  <div class="row text-center">
+    <div class="col-12 m-3">
+      <b>
+        <u>
+          <h2>Attribute Directives Component - ngStyle</h2>
+        </u>
+      </b>
+    </div>
+    <div class="col-4">
+      <h3 [ngStyle]="{'color': styleColor, 'font-weight': 'lighter'}">This is the first example of ngStyle</h3>
+      <br>
+      <button class="btn btn-warning m-2" (click)="updateColor('orange')">Change to Orange</button>
+      <button class="btn btn-primary m-2" (click)="updateColor('blue')">Change to Blue</button>
+    </div>
+    <div class="col-4">
+      <h3 [style]="{'color': styleColor}">This is the third example of ngStyle</h3>
+      <br>
+      <button class="btn btn-warning m-2" (click)="updateColor('orange')">Change to Orange</button>
+      <button class="btn btn-primary m-2" (click)="updateColor('blue')">Change to Blue</button>
+    </div>
+    <div class="col-4">
+      <h3 [style]="customClass">This is the third example of ngStyle</h3>
+    </div>
+  </div>
+
+</div>

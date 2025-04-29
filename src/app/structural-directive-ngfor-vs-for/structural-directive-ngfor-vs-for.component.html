@@ -1,0 +1,55 @@
+<div align="center">
+  <div class="row text-center">
+    <div class="col-12 m-3">
+      <b>
+        <h2>Example of *ngFor vs for</h2>
+      </b>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-4">
+      <b><h4>With *ngFor</h4></b>
+      <br>
+      <select name="" id="">
+        <option [value]="emp.empNumber" *ngFor="let emp of employees">
+          <b>{{emp.empName}} - {{emp.empEmail}} - {{emp.empNumber}} </b>
+        </option>
+      </select>
+    </div>
+    <div class="col-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Email</th>
+            <th>Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees">
+            <td>{{emp.empName}}</td>
+            <td>{{emp.empNumber}}</td>
+            <td>{{emp.empEmail}}</td>
+            <td>{{emp.empDept}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <ul>
+        @for (emp of employees; track emp.empNumber;) {
+          <li>{{emp.empName}} - {{emp.empEmail}} - {{emp.empNumber}}</li>
+        }
+      </ul>
+
+    </div>
+    <div class="col-4">
+
+    </div>
+
+
+  </div>
+
+</div>

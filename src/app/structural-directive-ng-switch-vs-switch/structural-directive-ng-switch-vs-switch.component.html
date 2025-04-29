@@ -1,0 +1,46 @@
+<div align="center">
+  <div class="row text-center">
+    <div class="col-12 m-3">
+      <b>
+        <h2>Example of *ngSwitch vs switch</h2>
+      </b>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-4">
+      @switch (color) {
+        @case ('red') {
+          <p>The color is red.</p>
+        }
+        @case ('blue') {
+          <p>The color is blue.</p>
+        }
+        @default {
+          <p>Unknown color</p>
+        }
+      }
+
+    </div>
+    <div class="col-4">
+      <div>
+        @switch (userRole) {
+          @case ('admin') {
+            <h2>Welcome, Admin!</h2>
+          }
+          @case ('editor') {
+            <h2>Welcome, Editor!</h2>
+          }
+          @case ('viewer') {
+            <h2>Welcome, Viewer!</h2>
+          }
+          @default {
+            <h2>Unknown role</h2>
+          }
+        }
+      </div>
+
+    </div>
+  </div>
+
+</div>
