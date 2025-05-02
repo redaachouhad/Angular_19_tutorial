@@ -1,0 +1,125 @@
+<div class="container">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <pre>value: {{userForm.value | json}}</pre>
+    <pre>valid: {{userForm.valid }}</pre>
+    <pre>invalid: {{userForm.invalid}}</pre>
+    <pre>touched: {{userForm.touched}}</pre>
+    <pre>untouched: {{userForm.untouched}}</pre>
+    <pre>submitted: {{userForm.submitted}}</pre>
+    <p>++++++++++++++++++++++++++++++++++++++</p>
+
+    <h2 class="text-center">User Information:</h2>
+    <br>
+    <p>{{userObject.firstName}} - {{userObject.lastName}} - {{userObject.email}} - {{userObject.password}}</p>
+    <br>
+    <div class="mb-3">
+      <label class="form-label">First Name: (min length validator: 4 characters) *</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your first name"
+        [(ngModel)]="userObject.firstName"
+        name="firstName"
+        required
+        minlength="4"
+        #fname="ngModel"
+      >
+      @if (fname?.dirty || fname?.touched) {
+        @if (fname?.errors?.['required']) {
+          <small class="text-danger">* Firstname is required</small>
+        }
+        @if (fname?.errors?.['minlength']) {
+          <small class="text-danger">* The minimum length of the firstname should be 5.</small>
+        }
+      }
+<!--      <p>Creating the reference #fname to refer to the input (example of</p>-->
+<!--      <pre>value: {{fname.value }}</pre>-->
+<!--      <pre>valid: {{fname.valid }}</pre>-->
+<!--      <pre>invalid: {{fname.invalid}}</pre>-->
+<!--      <pre>touched: {{fname.touched}}</pre>-->
+<!--      <pre>untouched: {{fname.untouched}}</pre>-->
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Last Name: (max length validator: 5 characters)*</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your last name"
+        [(ngModel)]="userObject.lastName"
+        name="lastName"
+        required
+        maxlength="5"
+        pattern="[a-zA-Z]+$"
+        #lname="ngModel"
+      >
+      @if (lname?.dirty || lname?.touched) {
+        @if (lname?.errors?.['required']) {
+          <small class="text-danger">* Lastname is required</small>
+        }
+        @if (lname?.errors?.['pattern']) {
+          <small class="text-danger">* Lastname does not match the pattern</small>
+        }
+        @if (lname?.errors?.['maxlength']) {
+          <small class="text-danger">* The maximum length of the lastname should be 5.</small>
+        }
+      }
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email: *</label>
+      <input type="email"
+             class="form-control"
+             placeholder="Enter your email"
+             [(ngModel)]="userObject.email"
+             name="email"
+             email
+             required
+             #emailid="ngModel"
+      >
+      @if (emailid?.dirty || emailid?.touched) {
+        @if (emailid?.errors?.['required']) {
+          <small class="text-danger">* Email address is required</small>
+        }
+        @if (emailid?.errors?.['email']) {
+          <small class="text-danger">* Please enter a valid email address</small>
+        }
+      }
+
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password: *</label>
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Enter your password"
+        [(ngModel)]="userObject.password"
+        name="password"
+        required
+        #pass="ngModel"
+      >
+      @if (pass?.dirty || pass?.touched) {
+        @if (pass?.errors?.['required']) {
+          <small class="text-danger">* Password is required</small>
+        }
+      }
+    </div>
+    <div class="mb-3">
+      <input
+        type="checkbox"
+        class="w-auto"
+        name="isCheck"
+        [(ngModel)]="userObject.isCheck"
+      >
+      <label class="form-label">Check me out</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary m-2" [disabled]="userForm.invalid">Submit</button>
+    <button type="submit" class="btn btn-warning m-2" (click)="setValues(userForm)">Set Values</button>
+    <button type="submit" class="btn btn-success m-2" (click)="patchValues(userForm)">Patch Values</button>
+    <button type="submit" class="btn btn-secondary m-2" (click)="resetValues(userForm)">Reset Values</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </form>
+</div>

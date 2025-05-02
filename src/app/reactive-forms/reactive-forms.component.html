@@ -1,0 +1,122 @@
+<div class="container">
+  <form class="w-100" [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    <h2 class="text-center">User Information: (Reactive Forms)</h2>
+    <div class="mb-3">
+      <label class="form-label">First Name: (min length validator: 4 characters) *</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your first name"
+        formControlName="firstname"
+      >
+      @if (reactiveForm.controls['firstname']?.dirty || reactiveForm.controls['firstname']?.touched) {
+        @if (reactiveForm.controls['firstname']?.errors?.['required']) {
+          <small class="text-danger">* Firstname is required</small>
+        }
+        @if (reactiveForm.controls['firstname']?.errors?.['minlength']) {
+          <small class="text-danger">* The minimum length of the firstname should be 5.</small>
+        }
+      }
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Last Name: (max length validator: 5 characters)*</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your last name"
+        formControlName="lastname"
+      >
+      @if (reactiveForm.controls['lastname']?.dirty || reactiveForm.controls['lastname']?.touched) {
+        @if (reactiveForm.controls['lastname']?.errors?.['required']) {
+          <small class="text-danger">* Lastname is required</small>
+        }
+        @if (reactiveForm.controls['lastname']?.errors?.['pattern']) {
+          <small class="text-danger">* Lastname does not match the pattern</small>
+        }
+        @if (reactiveForm.controls['lastname']?.errors?.['maxlength']) {
+          <small class="text-danger">* The maximum length of the lastname should be 5.</small>
+        }
+      }
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email: *</label>
+      <input
+        type="email"
+        class="form-control"
+        placeholder="Enter your email"
+        formControlName="email"
+      >
+      @if (reactiveForm.controls['email']?.dirty || reactiveForm.controls['email']?.touched) {
+        @if (reactiveForm.controls['email']?.errors?.['required']) {
+          <small class="text-danger">* Email address is required</small>
+        }
+        @if (reactiveForm.controls['email']?.errors?.['email']) {
+          <small class="text-danger">* Please enter a valid email address</small>
+        }
+      }
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Password: *</label>
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Enter your password"
+        formControlName="password"
+      >
+      @if (reactiveForm.controls['password']?.dirty || reactiveForm.controls['password']?.touched) {
+        @if (reactiveForm.controls['password']?.errors?.['required']) {
+          <small class="text-danger">* Password is required</small>
+        }
+      }
+    </div>
+
+    <div class="mb-3">
+      <input
+        type="checkbox"
+        class="w-auto"
+        formControlName="isChecked"
+      >
+      <label class="form-label">Check me out</label>
+    </div>
+
+
+    <div class="mb-3" formGroupName="address">
+      <h5 class="m-2">Address</h5>
+      <div class="mb-3">
+        <label class="form-label">City: </label>
+        <input type="text" class="form-control" placeholder="Enter city name" formControlName="city">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Street: </label>
+        <input type="text" class="form-control" placeholder="Enter street name" formControlName="street">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Pincode: </label>
+        <input type="text" class="form-control" placeholder="Enter pincode" formControlName="pincode">
+      </div>
+    </div>
+
+
+    <div class="mb-3" formArrayName="skills">
+      <button class="btn btn-primary" (click)="addSkill()">Add skill</button>
+      <div *ngFor="let skill of skills.controls; let i = index; trackBy: trackByIndex">
+        <div [formGroupName]="i">
+          {{i+1}} Skill name: <input type="text" formControlName="skill">
+          <button (click)="deleteSkill(i)">Delete</button>
+        </div>
+        <br>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary m-2" [disabled]="reactiveForm.invalid">Submit</button>
+    <button type="submit" class="btn btn-warning m-2" (click)="setValues()">Set Values</button>
+    <button type="submit" class="btn btn-success m-2" (click)="patchValues()">Patch Values</button>
+    <button type="submit" class="btn btn-secondary m-2" (click)="resetValues()">Reset Values</button>
+  </form>
+
+</div>
