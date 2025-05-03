@@ -11,6 +11,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {BuildInPipesComponent} from './build-in-pipes/build-in-pipes.component';
 import {TemplateDrivenFormComponent} from './template-driven-form/template-driven-form.component';
 import {ReactiveFormsComponent} from './reactive-forms/reactive-forms.component';
+import {ProfileComponent} from './profile/profile.component';
 
 export const routes: Routes = [
   // routes by default
@@ -46,6 +47,10 @@ export const routes: Routes = [
   {
     path: 'reactive-forms',
     component: ReactiveFormsComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
 
   {
