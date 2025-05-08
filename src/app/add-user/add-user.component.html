@@ -1,0 +1,21 @@
+<div class="container d-flex justify-content-center mt-5">
+  <form action="" class="w-50 bg-info" [formGroup]="addUserForm">
+    <h2 class="text-center m-4">Add User</h2>
+    <div class="form-group m-3">
+      <label for="name" class="form-table">Name: </label>
+      <input type="text" name="name" id="name" placeholder="name" class="form-control" formControlName="name">
+    </div>
+    <div class="form-group m-3">
+      <label for="username" class="form-table">Username: </label>
+      <input type="text" name="username" id="username" placeholder="username" class="form-control" formControlName="username">
+    </div>
+    <div class="form-group m-3">
+      <label for="email" class="form-table">Email: </label>
+      <input type="text" name="email" id="email" placeholder="email" class="form-control" formControlName="email">
+    </div>
+    <div class="text-center m-3">
+      <button class="btn btn-success btn-lg m-1" [disabled]="addUserForm.invalid" (click)="onSubmit()">Add</button>
+      <button class="btn btn-danger btn-lg m-1" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -12,6 +12,10 @@ import {BuildInPipesComponent} from './build-in-pipes/build-in-pipes.component';
 import {TemplateDrivenFormComponent} from './template-driven-form/template-driven-form.component';
 import {ReactiveFormsComponent} from './reactive-forms/reactive-forms.component';
 import {ProfileComponent} from './profile/profile.component';
+import {CRUDComponent} from './crud/crud.component';
+import {AddUserComponent} from './add-user/add-user.component';
+import {ViewUserComponent} from './view-user/view-user.component';
+import {UpdateUserComponent} from './update-user/update-user.component';
 
 export const routes: Routes = [
   // routes by default
@@ -52,7 +56,22 @@ export const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
   },
-
+  {
+    path: 'crud',
+    component: CRUDComponent,
+  },
+  {
+    path: 'adduser',
+    component: AddUserComponent,
+  },
+  {
+    path: 'viewuser/:id',
+    component: ViewUserComponent,
+  },
+  {
+    path: 'updateuser/:id',
+    component: UpdateUserComponent,
+  },
   {
     path: '**',
     component: PageNotFoundComponent,
