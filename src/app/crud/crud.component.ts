@@ -2,15 +2,20 @@ import {Component, OnInit} from '@angular/core';
 import {CrudService} from '../crud.service';
 import {Iuser} from '../iuser';
 import {Router} from '@angular/router';
+import {ReusableComponent} from '../reusable/reusable.component';
 
 @Component({
   selector: 'app-crud',
-  imports: [],
+  imports: [
+    ReusableComponent
+  ],
   templateUrl: './crud.component.html',
   styleUrl: './crud.component.scss'
 })
 export class CRUDComponent implements OnInit{
   apiData: Iuser[] = [];
+  parentProperty: string = "CRUD Operations: Kindly find all users";
+
   constructor(private crud: CrudService, private router: Router) {
   }
 

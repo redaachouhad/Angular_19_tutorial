@@ -1,0 +1,29 @@
+<div class="container">
+  <br>
+  <h2 class="text-center">
+    Angular 19 : resource() & rxResource() API
+  </h2>
+  <br>
+<!--  <button class="btn btn-info m-2" (click)="addNewUser()">Add New User</button>-->
+  <table class="table table-info table-striped">
+    <thead>
+    <tr>
+      <th class="col-2">User_ID</th>
+      <th class="col-2">Username</th>
+      <th class="col-3">Email</th>
+      <th class="col-3">Password</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (data of apiData.value(); track data.user_id) {
+        <tr>
+          <td>{{data.user_id}}</td>
+          <td>{{data.username}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.password}}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+</div>

@@ -1,6 +1,10 @@
 <div class="container">
+  <app-reusable [childProperty]="parentProperty" />
   <h2 class="text-center">
     Angular 19 : CRUD Operations with JSON Server
+  </h2>
+  <h2 class="text-center">
+    To run the database: " json-server --watch db.json "
   </h2>
   <br>
   <button class="btn btn-info m-2" (click)="addNewUser()">Add New User</button>
