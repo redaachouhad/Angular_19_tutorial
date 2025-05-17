@@ -19,6 +19,7 @@ import {UpdateUserComponent} from './update-user/update-user.component';
 import {ResourceApiComponent} from './resource-api/resource-api.component';
 import {ReusableComponent} from './reusable/reusable.component';
 import {ParentComponent} from './parent/parent.component';
+import {StorageComponent} from './storage/storage.component';
 
 export const routes: Routes = [
   // routes by default
@@ -87,7 +88,10 @@ export const routes: Routes = [
     path: 'parent',
     component: ParentComponent,
   },
-
+  {
+    path: 'storage',
+    component: StorageComponent,
+  },
   {
     path: '**',
     component: PageNotFoundComponent,
